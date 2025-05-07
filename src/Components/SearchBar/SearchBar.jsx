@@ -1,41 +1,42 @@
 import { useState } from 'react';
-import toast from 'react-hot-toast';
 import s from './SearchBar.module.css';
+import { FaSearch } from 'react-icons/fa'; // Іконка пошуку
 
 const SearchBar = ({ onSubmit }) => {
-  const [query, setQuery] = useState('');
+  const [searchValue, setSearchValue] = useState('');
 
   const handleChange = event => {
-    setQuery(event.target.value);
+    setSearchValue(event.target.value);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    if (query.trim() === '') {
-      toast.error('Введіть ключові слова для пошуку');
+
+    if (!searchValue.trim()) {
+      alert('Search query cannot be empty!');
       return;
     }
-    onSubmit(query);
-    setQuery('');
+
+    onSubmit(searchValue);
+    setSearchValue('');
   };
 
   return (
-    <header className={s.header}>
-      <form className={s.form} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={s.searchForm}>
+      <div className={s.inputWrapper}>
+        <FaSearch className={s.searchIcon} />
         <input
           type="text"
-          autoComplete="off"
-          autoFocus
-          placeholder="Search images and photos"
-          value={query}
+          value={searchValue}
           onChange={handleChange}
-          className={s.input}
+          className={s.searchInput}
+          placeholder="Search images..."
         />
-        <button type="submit" className={s.button}>
-          Search
-        </button>
-      </form>
-    </header>
+      </div>
+      <button type="submit" className={s.searchButton}>
+        Search
+      </button>
+    </form>
   );
 };
 

@@ -41,7 +41,9 @@ const App = () => {
 
         setTotalPages(Math.ceil(response.total / 12));
       } catch (error) {
-        setError('На жаль, виникла помилка. Спробуйте ще раз пізніше.');
+        setError(
+          `На жаль, виникла помилка. ${error.message} Спробуйте ще раз пізніше.`
+        );
         toast.error('Помилка при завантаженні зображень!');
       } finally {
         setIsLoading(false);

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import s from './SearchBar.module.css';
-import { FaSearch } from 'react-icons/fa'; // Іконка пошуку
+import { FaSearch } from 'react-icons/fa';
 
 const SearchBar = ({ onSubmit }) => {
   const [searchValue, setSearchValue] = useState('');

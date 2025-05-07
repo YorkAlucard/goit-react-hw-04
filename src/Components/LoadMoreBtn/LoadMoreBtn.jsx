@@ -1,7 +1,7 @@
 import s from './LoadMoreBtn.module.css';
 
 const LoadMoreBtn = ({ onClick, isVisible }) => {
-  if (!isVisible) return null; // Не рендеримо кнопку, якщо немає зображень
+  if (!isVisible) return null;
 
   return (
     <button className={s.button} onClick={onClick}>

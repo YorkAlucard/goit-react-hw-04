@@ -59,21 +59,18 @@ const ImageModal = ({ isOpen, onClose, image }) => {
       closeTimeoutMS={300}
     >
       {image && (
-        <>
-          <button className={s.closeButton} onClick={onClose}>
-            &times;
-          </button>
-          <div className={s.modalContent}>
-            <img
-              src={image.urls.regular}
-              alt={image.alt_description || 'Зображення'}
-              className={s.modalImage}
-            />
-            {image.description && (
-              <p className={s.imageDescription}>{image.description}</p>
-            )}
-          </div>
-        </>
+        <div className={s.modalContent}>
+          <img
+            src={image.urls.regular}
+            alt={image.alt_description || 'Зображення'}
+            className={s.modalImage}
+            onClick={onClose}
+            style={{ cursor: 'pointer' }}
+          />
+          {image.description && (
+            <p className={s.imageDescription}>{image.description}</p>
+          )}
+        </div>
       )}
     </Modal>
   );

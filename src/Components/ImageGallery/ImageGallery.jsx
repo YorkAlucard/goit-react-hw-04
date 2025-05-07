@@ -2,7 +2,7 @@ import s from './ImageGallery.module.css';
 import ImageCard from '../ImageCard/ImageCard';
 
 const ImageGallery = ({ images, onImageClick }) => {
-  if (images.length === 0) return null; // Не рендеримо галерею, якщо немає зображень
+  if (images.length === 0) return null;
 
   const handleImageClick = image => {
     onImageClick(image);
